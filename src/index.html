@@ -1,29 +1,135 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
-    <link rel="shortcut icon" href="./4geeks.ico" />
-  </head>
-  <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Primer formulario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header ">
+                <h5 class="card-title fw-bold fs-3">Payment for example</h5>
+            </div>
+            <div class="card-body">
+                <div class="invalid-feedback" >
+                    <div class="alert alert-danger fw-bold" role="alert">
+                    Some fields are missing
+                    </div>
+                </div>
+                <form id="myForm" class="row g-3" novalidate>
+                    <div class="col-md-5">
+                        <label for="inputCard" class="form-label">Card#</label>
+                        <input placeholder="XXXXXXXXXXXXXXXX" type="text" class="form-control" name="inputCard" id="inputCard" required>
+                        <small class="invalid-feedback" ><b>Debes ingresar una tarjeta valida</b></small>
+                        <small class="valid-feedback" ><b>Correcto</b></small>
+
+                    
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputCVC" class="form-label">CVC#</label>
+                        <input placeholder="000" type="password" class="form-control" name="inputCVC" id="inputCVC"required>
+                        <small class="invalid-feedback" id="cvc"><b>Debes ingresar un numero valido</b></small>
+                        <small class="valid-feedback" ><b>Correcto</b></small>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputAmount" class="form-label">Amount</label>
+                        <input placeholder="Amount" type="number" class="form-control" name="inputAmount" id="inputAmount"required>
+                        <small class="invalid-feedback" id="amount"><b>Debes ingresar un monto comprendido entre $100 y $999999</b></small>
+                        <small class="valid-feedback" ><b>Correcto</b></small>
+                    </div>
+                    <div class="col-6">
+                        <label for="inputFirstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" name="inputFirstName" id="inputFirstName"required>
+                        <small class="invalid-feedback" id="firstName"><b>Debes ingresar un nombre valido</b></small>
+                        <small class="valid-feedback" ><b>Correcto</b></small>
+                    </div>
+                    <div class="col-6">
+                        <label for="inputLastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" name="inputLastName" id="inputLastName"required>
+                        <small class="invalid-feedback" id="lastName"><b>Debe ingresar su apellido</b></small>
+                        <small class="valid-feedback" ><b>Correcto</b></small>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputCity" class="form-label">City</label>
+                        <input type="text" class="form-control" name="inputCity" id="inputCity"required>
+                        <small class="invalid-feedback" id="city"><b>Debe ingresar su ciudad de residencia</b></small>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputState" class="form-label">State</label>
+                        <select id="inputState" class="form-select"required>
+                            <option selected>Pick a state</option>
+                            <option>...</option>
+                            <small class="invalid-feedback" id="state"></small>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputZip" class="form-label">Postal Code</label>
+                        <input type="text" class="form-control" name="inputZip" id="inputZip"required>
+                        <small class="invalid-feedback" id="zip"><b>Debe ingresar su ZIP</b></small>
+                    </div>
+                    <div class="col-6 ">
+                        <p>We accept:</p>
+                        <div class="bg-secondary text-white rounded d-inline py-2 px-1 ">
+                            <div class="form-check form-check-inline ">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                    value="option1"checked>
+                                <label class="form-check-label" for="inlineRadio1"><i
+                                        class="fa-brands fa-cc-mastercard"></i></label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                    value="option2">
+                                <label class="form-check-label" for="inlineRadio2"><i
+                                        class="fa-brands fa-cc-visa"></i></label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                                    value="option3">
+                                <label class="form-check-label" for="inlineRadio3"><i
+                                        class="fa-brands fa-cc-diners-club "></i> </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4"
+                                    value="option4">
+                                <label class="form-check-label" for="inlineRadio4"><i
+                                        class="fa-brands fa-cc-amex"></i></label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-6">
+                        <p>Message</p>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                                style="height: 100px"></textarea>
+                            <label for="floatingTextarea2"></label>
+                            <small class="invalid-feedback" id="message"><b>Datos adicionales</b></small>
+                            <p class="text-secondary">Add any notes here.</p>
+                            
+                        </div>
+                    </div>
+               
+            </div>
+            <div class="card-footer d-flex justify-content-end">
+                <button type="button" class="btn btn-secondary btn-sm mx-2">Close</button>
+                <button type="submit" class="btn btn-primary  btn-sm">Send</button>
+            </div>
+             </form>
+        </div>
     </div>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous">
+    </script>
+</body>
+
 </html>
